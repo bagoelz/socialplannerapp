@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-content>
+      <Calender />
+    </v-content>
+    <!-- <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -35,14 +38,18 @@
 
     <v-main>
       <router-view />
-    </v-main>
+    </v-main> -->
   </v-app>
 </template>
 
 <script>
+import Calender from "./components/Calender.vue";
+
 export default {
   name: "App",
-
+  components: {
+    Calender,
+  },
   data: () => ({
     //
   }),
