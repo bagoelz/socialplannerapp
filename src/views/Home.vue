@@ -86,7 +86,7 @@
           @click:date="viewDay"
           @change="updateRange"
         ></v-calendar>
-        <!-- <v-menu
+        <v-menu
           v-model="selectedOpen"
           :close-on-content-click="false"
           :activator="selectedElement"
@@ -101,41 +101,64 @@
               :color="selectedEvent.color"
               dark
             >
-              <v-btn icon>
-                <v-icon>mdi-pencil</v-icon>
-              </v-btn>
-              <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-              </v-btn>
-              <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
+           <v-card-title>
+          <span class="text-h5">Create Event</span>
+        </v-card-title>
             </v-toolbar>
-            <v-card-text>
-              <span v-html="selectedEvent.details"></span>
-            </v-card-text>
             <v-card-actions>
+               <v-container>
+              <v-row>
+                <v-col cols="12">
+              <v-text-field
+                  label="title"
+                  required
+                ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+              <v-text-field
+                  label="description"
+                  required
+                ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+              <v-text-field
+                  label="gambar"
+                  required
+                ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+              <v-text-field
+                  label="video"
+                  required
+                ></v-text-field>
+                </v-col> 
+              <v-col cols="12">
               <v-btn
-                text
-                color="secondary"
-                @click="selectedOpen = false"
-              >
-                Cancel
-              </v-btn>
+            color="blue darken-1"
+            text
+            @click="dialog = false"
+          >
+            Close
+          </v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="dialog = false"
+          >
+            Save
+          </v-btn>
+          </v-col> 
+          </v-row>
+            </v-container>
             </v-card-actions>
           </v-card>
-          
-        </v-menu> -->
+        </v-menu>
       </v-sheet>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import keterangan from "../components/inputKegiatan.vue";
-
   export default {
     data: () => ({
       focus: '',
@@ -153,9 +176,6 @@ import keterangan from "../components/inputKegiatan.vue";
       colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
       names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
     }),
-    components : [
-      keterangan
-    ],
     mounted () {
       this.$refs.calendar.checkChange()
     },
