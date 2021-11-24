@@ -61,7 +61,7 @@
         >
           <validation-observer ref="observer" v-slot="{ invalid }">
             <form @submit.prevent="submit">
-              <v-card color="grey lighten-4" min-width="350px" flat>
+              <v-card color="grey lighten-4" max-width="300px" flat>
                 <v-toolbar :color="selectedEvent.color" dark>
                   <v-title> Create Event </v-title>
                   <!-- <v-btn icon>
@@ -99,6 +99,8 @@
                         rules="required"
                       >
                         <v-text-field
+                          rows="1"
+                          no-resize
                           label="title*"
                           v-model="title"
                           :error-messages="errors"
@@ -113,6 +115,8 @@
                         rules="required"
                       >
                         <v-text-field
+                          rows="1"
+                          no-resize
                           label="description*"
                           v-model="description"
                           :error-messages="errors"
@@ -127,6 +131,8 @@
                         rules="required"
                       >
                         <v-text-field
+                          rows="1"
+                          no-resize
                           label="gambar*"
                           v-model="gambar"
                           :error-messages="errors"
@@ -141,6 +147,8 @@
                         rules="required"
                       >
                         <v-text-field
+                          rows="1"
+                          no-resize
                           label="video*"
                           v-model="video"
                           :error-messages="errors"
